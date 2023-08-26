@@ -3,8 +3,8 @@ import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
 const SocketContext = createContext();
-
-const socket = io('http://localhost:5000');
+const socket = io(process.env.REACT_APP_MOODREADER_API_KEY);
+// const socket = io('http://localhost:5000')
 
 const ContextProvider = ({ children }) => {
     const [callAccepted, setCallAccepted] = useState(false);
