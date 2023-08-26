@@ -25,8 +25,14 @@ const ContextProvider = ({ children }) => {
 
                 if (myVideo.current) {
                     myVideo.current.srcObject = currentStream;
+                    myVideo.current.onloadedmetadata = () => {
+                        myVideo.current.play();
+                    };
                 }
-            });
+            }).catch((err) => {
+                /* handle the error */
+                console.log(err);
+            });;
 
         socket.on('me', (id) => setMe(id));
 

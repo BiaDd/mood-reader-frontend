@@ -1,7 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import { Typography, AppBar } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
+import React from 'react';
+import { Typography, AppBar } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 import Notifications from './components/Notifications';
