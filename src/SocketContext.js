@@ -27,6 +27,7 @@ const ContextProvider = ({ children }) => {
                     myVideo.current.srcObject = currentStream;
                     myVideo.current.onloadedmetadata = () => {
                         myVideo.current.play();
+                        myVideo.setAttribute('autoplay', true); /* THIS */
                     };
                 }
             }).catch((err) => {
@@ -63,10 +64,6 @@ const ContextProvider = ({ children }) => {
         const peer = new Peer({ initiator: true, trickle: false, stream });
 
         peer.on('signal', (data) => {
-            console.log(name);
-            console.log(me);
-            console.log(data);
-            console.log(id);
             socket.emit('callUser', { userToCall: id, signalData: data, from: me, name });
         });
 
